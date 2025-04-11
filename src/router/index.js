@@ -40,6 +40,11 @@ const routes = [
         component: () => import('../pages/auth/Agenda.vue'),
       },
       {
+        path : 'galeri',
+        name : 'dashboard.galeri',
+        component: () => import('../pages/auth/Galeri.vue'),
+      },
+      {
         path: 'profile',
         name: 'dashboard.profile',
         component: () => import('../pages/auth/Profile.vue'),

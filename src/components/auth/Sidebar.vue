@@ -37,6 +37,11 @@
                     </router-link>
                 </li>
                 <li>
+                    <router-link to="/dashboard/galeri" class="btn btn-ghost justify-start w-full">
+                        Galeri Desa
+                    </router-link>
+                </li>
+                <li>
                     <router-link to="/settings" class="btn btn-ghost justify-start w-full">
                         Pengaturan
                     </router-link>
