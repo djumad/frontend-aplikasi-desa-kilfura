@@ -42,6 +42,16 @@
                     </router-link>
                 </li>
                 <li>
+                    <router-link to="/dashboard/lembaga" class="btn btn-ghost justify-start w-full">
+                        Lembaga Desa
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/dashboard/pengumuman" class="btn btn-ghost justify-start w-full">
+                        Pengumuman Desa
+                    </router-link>
+                </li>
+                <li>
                     <router-link to="/settings" class="btn btn-ghost justify-start w-full">
                         Pengaturan
                     </router-link>
@@ -65,7 +75,7 @@ defineProps({
     },
 });
 
-const isOpen = ref(true); // bisa diubah ke false kalau default-nya tertutup
+const isOpen = ref(false); // bisa diubah ke false kalau default-nya tertutup
 
 const toggleSidebar = () => {
     isOpen.value = !isOpen.value;

@@ -45,6 +45,16 @@ const routes = [
         component: () => import('../pages/auth/Galeri.vue'),
       },
       {
+        path : 'lembaga',
+        name : 'dashboard.lembaga',
+        component: () => import('../pages/auth/Lembaga.vue'),
+      },
+      {
+        path : 'pengumuman',
+        name : 'dashboard.pengumuman',
+        component: () => import('../pages/auth/Pengumuman.vue'),
+      },
+      {
         path: 'profile',
         name: 'dashboard.profile',
         component: () => import('../pages/auth/Profile.vue'),

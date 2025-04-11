@@ -24,12 +24,12 @@
       </h3>
 
       <div class="form-control">
-        <label class="label font-semibold">Judul</label>
+        <label class="label font-semibold m-2">Judul</label>
         <input v-model="agenda.judul" type="text" class="input input-bordered" required />
       </div>
 
       <div class="form-control">
-        <label class="label font-semibold">Lokasi</label>
+        <label class="label font-semibold m-2">Lokasi</label>
         <input v-model="agenda.lokasi" type="text" class="input input-bordered" required />
       </div>
 
@@ -39,7 +39,7 @@
       </div>
 
       <div class="form-control">
-        <label class="label font-semibold">Tanggal</label>
+        <label class="label font-semibold m-2">Tanggal</label>
         <input v-model="agenda.tanggal" type="date" class="input input-bordered" required />
       </div>
 
