@@ -35,6 +35,11 @@ const routes = [
         component: () => import('../pages/auth/VisiMisiEdit.vue'),
       },
       {
+        path : 'agenda',
+        name : 'dashboard.agenda',
+        component: () => import('../pages/auth/Agenda.vue'),
+      },
+      {
         path: 'profile',
         name: 'dashboard.profile',
         component: () => import('../pages/auth/Profile.vue'),

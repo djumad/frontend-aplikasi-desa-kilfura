@@ -15,8 +15,7 @@
                 <label class="label">
                     <span class="label-text font-semibold">Deskripsi</span>
                 </label>
-                <textarea v-model="visiMisi.deskripsi" class="textarea textarea-bordered" rows="5"
-                    placeholder="Masukkan deskripsi" required></textarea>
+                <div ref="quillEditor" class="h-64"></div>
             </div>
 
             <div class="form-control">
@@ -41,11 +40,17 @@
 <script setup>
 import axios from 'axios'
 import { api, url } from '../../lib/url'
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import Quill from 'quill'
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
 
 const router = useRouter()
 const token = localStorage.getItem('token')
+const quillEditor = ref(null)
+let quill = null
 
 const visiMisi = ref({
     id: '',
@@ -58,10 +63,40 @@ const visiMisi = ref({
 const selectedFile = ref(null)
 const loading = ref(false)
 
+const initializeQuill = () => {
+    quill = new Quill(quillEditor.value, {
+        modules: {
+            toolbar: [
+                [{ header: [1, 2, 3, 4, false] }],
+                ['bold', 'italic', 'underline', 'link'],
+                [{ list: 'ordered' }, { list: 'bullet' }],
+                ['clean']
+            ],
+        },
+        theme: 'snow',
+        placeholder: 'Tulis deskripsi visi & misi di sini...'
+    })
+
+    // Set initial content if data exists
+    if (visiMisi.value.deskripsi) {
+        quill.root.innerHTML = visiMisi.value.deskripsi
+    }
+
+    // Update v-model when editor content changes
+    quill.on('text-change', () => {
+        visiMisi.value.deskripsi = quill.root.innerHTML
+    })
+}
+
 const getDataVisiMisi = async () => {
     try {
         const response = await axios.get(api + '/api/visi-misi')
         visiMisi.value = response.data[0]
+        
+        // Initialize Quill after data is loaded
+        if (quill && visiMisi.value.deskripsi) {
+            quill.root.innerHTML = visiMisi.value.deskripsi
+        }
     } catch (err) {
         console.error('Gagal memuat data Visi Misi:', err)
     }
@@ -99,7 +134,27 @@ const submitForm = async () => {
 }
 
 onMounted(() => {
+    initializeQuill()
     getDataVisiMisi()
 })
-
 </script>
+
+<style>
+.ql-editor {
+    min-height: 200px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.ql-container {
+    border: 1px solid #d1d5db !important;
+    border-radius: 0.375rem;
+}
+
+.ql-toolbar {
+    border: 1px solid #d1d5db !important;
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+    background-color: #f9fafb;
+}
+</style>

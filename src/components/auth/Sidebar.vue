@@ -28,7 +28,12 @@
                 </li>
                 <li>
                     <router-link to="/dashboard/visi-misi" class="btn btn-ghost justify-start w-full">
-                        Visi Misi
+                        Visi Misi Desa
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/dashboard/agenda" class="btn btn-ghost justify-start w-full">
+                        Agenda Desa
                     </router-link>
                 </li>
                 <li>

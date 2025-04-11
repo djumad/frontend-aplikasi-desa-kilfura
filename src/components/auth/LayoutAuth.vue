@@ -69,3 +69,9 @@ onMounted(() => {
     getUser();
 })
 </script>
+
+<style scoped>
+    *{
+        background-color: white;
+    }
+</style>
