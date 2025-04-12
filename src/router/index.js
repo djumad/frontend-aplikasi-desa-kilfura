@@ -55,6 +55,21 @@ const routes = [
         component: () => import('../pages/auth/Pengumuman.vue'),
       },
       {
+        path : 'perangkat-desa',
+        name : 'dashboard.perangkat-desa',
+        component: () => import('../pages/auth/PerangkatDesa.vue'),
+      },
+      {
+        path : 'produk-unggulan',
+        name : 'dashboard.produk-unggulan',
+        component: () => import('../pages/auth/ProdukUnggulan.vue'),
+      },
+      {
+        path : 'potensi-desa',
+        name : 'dashboard.potensi-desa',
+        component: () => import('../pages/auth/PotensiDesa.vue'),
+      },
+      {
         path: 'profile',
         name: 'dashboard.profile',
         component: () => import('../pages/auth/Profile.vue'),
